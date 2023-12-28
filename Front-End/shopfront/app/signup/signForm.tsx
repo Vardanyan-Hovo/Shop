@@ -27,7 +27,7 @@ const SignForm = (props: Props) => {
         }
 
         //axios.post('/api/register', data)
-        axios.post('http://localhost:3001/api/register', data)
+        axios.post('http://localhost:5001/api/register', data)
             .then((response)=>{
                 console.log(response)
             }).catch((error)=>{
