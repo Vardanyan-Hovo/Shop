@@ -8,10 +8,6 @@ Tailwind
 Tailwind CSS IntelliSense
 //
 
-//node 21
-node latest
-nvm install node --reinstall-packages-from=node
-//
 
 
 Build a Fullstack Food Ordering App with Next.js 14 (react.js, mongo, tailwind)
@@ -23,10 +19,8 @@ Build and Deploy a Full-Stack E-Commerce: Next.js 13, React.js, Typescript, Tail
 https://www.youtube.com/watch?v=g88HHFjuMm4&list=PL63c_Ws9ecISwPzddQzQ671S_gzJA6M5z
 
 
-
-
-
-
 //----------------------------------------------------------------------------------
 Full Stack Ecommerce Website Using NextJs 13.4 | Next Js Project
 https://www.youtube.com/watch?v=blZ9zKqQ_tU&t=652s
+
+

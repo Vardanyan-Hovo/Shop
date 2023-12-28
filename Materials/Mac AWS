@@ -1,0 +1,18 @@
+//++++++++++++++++++++++++AWS+++++++++++++++++++
+How To Create A Full Stack Typesafe App With No Knowledge! Using AWS Gen2 and Next.js 14!
+https://www.youtube.com/watch?v=wcSMnICY-_8
+//++++++++++++++++++++++++++++++++++++++++++++
+
+
+//++++++++++++++++++++++++MAC node -v
+https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/
+//node 21
+node latest
+
+
+//--------------------------  nvm    --------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+nvm install node --reinstall-packages-from=node
+

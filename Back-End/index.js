@@ -43,14 +43,19 @@ app.get("/data", async (req, res) => {
 //create new object user and response that object to 
 //client because in server added other information 
 //such as id and other
-app.post("/user", async (req, res) => {
+app.post("/api/register", async (req, res) => {
+    let hashedPwd;
     //create hashedPwd password
-    const hashedPwd = await bcrypt.hash(req.password, 10);
+    if (req.password.length() < 10)
+      hashedPwd = await bcrypt.hash(req.password, 10);
+    else
+      hashedPwd = req.password;
 
     if (!req.name || !req.password || !req.type || !req.email)
     {
       return res.status(400).json({ message: `received user not create db` });
     }
+    console.log(req);
     let User = new {
       id: `${Date.now()}_${Math.random()}`,
       name: req.name,
