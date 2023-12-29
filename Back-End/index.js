@@ -2,6 +2,10 @@ import express, { json } from "express";
 import cors from 'cors';
 import userSignUp  from "./src/signup/sugnup.js";
 import useController from "./src/controller/controller.js"
+import session from "express-session";
+import passport from "passport"
+import logout from "./src/longout/longout.js"
+import checkisAuthenticated from "./src/utils/checkisAuthenticated.js"
 // import pass from "./passBcrypt.js"
 
 const app = express();
@@ -20,22 +24,39 @@ app.use(express.json());
 //for from parsing
 app.use(express.urlencoded({extended : true}))
 
+// secret:"keyboard cat"
+app.use(session({
+  secret: process.env.SESSION_SECRET,  //save .env
+  resave: false,                        //cookie: {maxAge: 60000}
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 //when request came to react.js
 // app.use(express.static("./front/build"));
 
-app.use("/api/register", userSignUp);
 
 app.use("/", useController);
+
+app.use("/api/register", userSignUp);
 
 app.get("/user", async (req, res) => {
   return res.send("user");
 });
 
+app.use("/logout", logout)
+
 app.get("/", async (req, res) => {
   return res.send("Hello");
 });
 
+app.use(checkisAuthenticated);
 
+app.get("/Home", async (req, res) => {
+  return res.send("Hello");
+});
 
 
 //listen this port 

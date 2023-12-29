@@ -6,9 +6,31 @@ const router = express.Router();
 router.get("/data", async (req, res) => {
     return res.send(Users);
   });
-  
+
 // Define a GET route to retrieve user data by ID
-router.get('/user/:id', (req, res) => {
+router.get('api/credentials/user/:email', (req, res) => {
+    const userEmail = req.params.email; // Access the user ID from request parameters
+
+    const user = Users.find((user) => user.email === userEmail);
+
+    if (!user)
+        res.send(null);
+
+    // Here you would typically fetch user data based on the provided Email from a database or another source
+    // For example, assuming some user data is fetched based on userEmail
+    const userData = {
+    id: user.id,
+    name: user.name,
+    type : user.type,
+    email : userEmail
+    };
+
+    // Send the user data as a JSON response
+    res.send(userData);
+});
+
+// Define a GET route to retrieve user data by ID
+router.get('/api/user/:id', (req, res) => {
     const userId = req.params.id; // Access the user ID from request parameters
 
     const user = Users.find((user) => user.id === userId);
@@ -31,7 +53,7 @@ router.get('/user/:id', (req, res) => {
   
   
 //change user by id
-router.put('/user/:id', (req, res) => {
+router.put('/api/user/:id', (req, res) => {
     const userId = req.params.id; // Access the user ID from request parameters
 
     const user = Users.find((user) => user.id === userId);
@@ -53,7 +75,7 @@ router.put('/user/:id', (req, res) => {
 
 
 // delete user for db
-router.delete('/user/:id', (req, res) => {
+router.delete('/api/user/:id', (req, res) => {
     // Access the user ID from request parameters
     const userId = parseInt(req.params.id); 
 
