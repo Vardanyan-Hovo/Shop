@@ -4,8 +4,9 @@ import Signinform from './signinform'
 type Props = {}
 
 const page = (props: Props) => {
-  return (
+  return (<>
     <Signinform/>
+  </>
   )
 }
 

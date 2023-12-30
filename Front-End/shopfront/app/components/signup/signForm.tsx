@@ -33,7 +33,7 @@ const SignForm = (props: Props) => {
             }).catch((error)=>{
                 console.log(error)
             }).finally(()=>{
-                router.push('/signin');
+                router.push('./signin');
             })
     }
 
@@ -85,7 +85,7 @@ const SignForm = (props: Props) => {
                     focus:outline-none focus:border-gray-600">
                     Registr Now
                 </button>
-                <Link href='/signin' className="text-sm text-center mt-5 text-neutral-600">
+                <Link href='./components/signin' className="text-sm text-center mt-5 text-neutral-600">
                     Sign In
                 </Link>
                 <Link href='/' className='text-center mt-2 '>

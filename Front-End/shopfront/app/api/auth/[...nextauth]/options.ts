@@ -1,64 +1,43 @@
-import type {NextAuthOptions} from "next-auth";
+// import type { NextApiRequest, NextApiResponse } from "next"
+import type { NextAuthOptions } from "next-auth";
+import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials"
-import bcrypt from "bcrypt";
-import axios from "axios";
-
 
 export const options:NextAuthOptions = {
     providers:[
+        GitHubProvider({
+            clientId: process.env.GITHUB_ID as string,
+            clientSecret: process.env.GITHUB_SECRET as string
+          }),
         CredentialsProvider({
-            name:"Credentials",
-            credentials:{
-                email:{
-                    label:'email',
-                    type:'text',
-                    placeholder:'your email'
-                },
-                password:{
-                    label:'password',
-                    type:'password',
-                    placeholder:'your password'
-                }
+            // The name to display on the sign in form (e.g. "Sign in with...")
+            name: "Credentials",
+            // `credentials` is used to generate a form on the sign in page.
+            // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+            // e.g. domain, username, password, 2FA token, etc.
+            // You can pass any HTML attribute to the <input> tag through the object.
+            credentials: {
+              username: { label: "Username", type: "text", placeholder: "Your-cool-username" },
+              password: { label: "Password", type: "password", placeholder: "Your-password" }
             },
-            async authorize(credentials): Promise<any>{
-                if (!credentials?.email || !credentials?.password){
-                    throw new Error('Invalid credentials')
-                }
-                const response = await axios.get(`http://localhost:5001/api/credentials/user/${credentials.email}`);
-                console.log(response); // Assuming the user data is in response.data
-                const user = response.data;
-            
-                if (!user || !user.email || !user.password) {
-                    throw new Error('Invalid credentials User data');
-                }
-                const isCorrectedPassword 
-                    = await bcrypt.compare(credentials.password,user.password)
-                if (!isCorrectedPassword){
-                    throw new Error('Invalid credentials User password or Email');
-                }
+            async authorize(credentials, req) : Promise<any>{
+              // Add logic here to look up the user from the credentials supplied
+              const user = { id: "1", name: "J Smith", email: "Your@example.com", password:"password"}
+        
+              if (credentials?.username === user.name 
+                && credentials?.password === user.password) {
+                // Any object returned will be saved in `user` property of the JWT
+                return user
+              } else {
+                // If you return null then an error will be displayed advising the user to check their details.
+                return null
+        
+                // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+              }
             }
-        })
+          })
     ],
-    pages:{
-        signIn:'/signin',
-        error:'/signin',
-    },
-    callbacks:{
-        session: async ({session, token, user}) =>{
-            if (session?.user)
-            {
-                session.user.id = token.uid;
-            }
-            return session;
-        },
-        jwt: async ({user,token}) =>{
-            if (user){
-                token.uid = user.id;
-            }
-            return token;
-        }
-    },
-    secret: process.env.NEXTAUTH_SECRET,
-    debug: process.env.NODE_ENV === 'development'
+    // pages:{
+    //     signIn:"/signin"
+    // }
 }
-
