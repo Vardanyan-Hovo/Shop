@@ -28,6 +28,7 @@ export default function Hero(){
                     </button>
                 </div>
             </div>
+
             <div className=' w-72 min-h-96 mr-14 '>
                 <div className='mt-14 '>
                     <Image src={'/pizza.png'} priority={true} width={300} height={300} alt="pizza"  />

@@ -1,7 +1,8 @@
 export default function checkNoteAuthenticated(req, res, next){
     if (req.isAuthenticated() === true)
     {
-        return res.redirect("/user");
+        console.log("redirect")
+        return res.redirect("/api/lognin");
     }
     next();
 }

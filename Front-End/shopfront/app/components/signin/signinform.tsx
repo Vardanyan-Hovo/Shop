@@ -16,13 +16,13 @@ const Signinform = (props: Props) => {
     const Login = () => {
         try{
             signIn('credentials', {
-                // email:user.email,
                 username:user.email,
                 password:user.password,
                 redirect:true,
                 callbackUrl:'/'
             })
-        }catch{
+        }
+        catch{
             console.log('Error while logging in')
         }
     }
@@ -32,7 +32,7 @@ const Signinform = (props: Props) => {
             <h1 className='text-xl font-medium mb-4'>Sign In</h1>
             <label htmlFor="" className='mb-2'>Email</label>
             <input 
-                type="text"
+                type="email"
                 className='p-2 border-gray-300 border-[1px] rounded-lg w-[300px] mb-4 focus:outline-none focus:border-gray-600 text-black'
                 id='email'
                 value={user.email}

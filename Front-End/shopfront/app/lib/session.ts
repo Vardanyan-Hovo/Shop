@@ -3,14 +3,15 @@ import {options} from "@/app/api/auth/[...nextauth]/options"
 
 
 
-export function getSession(){
-    return getServerSession(options) //return CredentialsProvider
-}
+// export function getSession(){
+//     return getServerSession(options) //return CredentialsProvider
+// }
 
 
 
 export async function getCurrentUser() {
-    const session = await getSession()
+    const session = await getServerSession(options)
+    
     return session;
 }
 

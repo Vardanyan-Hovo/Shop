@@ -1,11 +1,13 @@
 import express from 'express';
+import {Users} from "../bd/data.js"
+
 const router = express.Router();
 
 
 //returns data to Users
 router.get("/data", async (req, res) => {
     return res.send(Users);
-  });
+});
 
 // Define a GET route to retrieve user data by ID
 router.get('api/credentials/user/:email', (req, res) => {

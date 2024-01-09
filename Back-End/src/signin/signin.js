@@ -1,6 +1,8 @@
 import express from 'express';
+import passport from 'passport';
 import passportLocal from "passport-local"
-import checkNoteAuthenticated from "./checkNoteAuthenticated"
+import checkNoteAuthenticated from "./checkNoteAuthenticated.js"
+import {Users} from "../bd/data.js"
 
 const router = express.Router();
 //-------------------------------------------------------------------    for password     --------
@@ -10,17 +12,17 @@ passport.use(new passportLocal.Strategy({
       //we say your username is your email address
       usernameField: "email"
   }, async (email, password, done) => {
-      let user = data.find((user)=>user.email === email);
-      if (!user)
-      {
+      let user = Users.find((user)=>user.email === email);
+      console.log("user = " + user);
+      if (!user) {
           //         error, user?  
           return done(null, null, {massage: "incorect email"});
       }
-      //                       real           hash password
-      if (await bcrypt.compare(password, user.password))
-      {
+      //                       real        hash password
+      if (await bcrypt.compare(password, user.password)) {
           return done(null, user);
       }
+      console.log("user = " + user);
       done(null, null, {massage: "incorect password"})
 }));
 
@@ -33,22 +35,24 @@ passport.serializeUser((user, done) => {
 
 //got error function id and returned user
 passport.deserializeUser((id, done)=> {
-  done(null, data.find((user)=>user.id === id));
+  done(null, Users.find((user)=>user.id === id));
 })
 //-------------------------------------------------------------------    for password     --------
 
 
 
+
 //call passport.use(new passportLocal.Strategy())
-router.post("/login", checkNoteAuthenticated,  passport.authenticate("local", {
-  success: "/user",
+router.post("/", checkNoteAuthenticated,  passport.authenticate("local", {
+  success: "/Home",
   failure: "/login"
 }));
 
 // Sign-in route
-router.get('/signin', (req, res) => {
+router.get('/', (req, res) => {
   const { username, password } = req.query;
 
+  console.log("username = " + username + "password = " + password);
 });
   
 

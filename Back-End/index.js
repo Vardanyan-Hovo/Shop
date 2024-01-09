@@ -6,6 +6,7 @@ import session from "express-session";
 import passport from "passport"
 import logout from "./src/longout/longout.js"
 import checkisAuthenticated from "./src/utils/checkisAuthenticated.js"
+import userSignIn from "./src/signin/signin.js"
 // import pass from "./passBcrypt.js"
 
 const app = express();
@@ -41,26 +42,22 @@ app.use(passport.session());
 app.use("/", useController);
 
 app.use("/api/register", userSignUp);
-
-app.get("/user", async (req, res) => {
-  return res.send("user");
-});
-
+app.use("api/lognin", userSignIn);
 app.use("/logout", logout)
 
 app.get("/", async (req, res) => {
-  return res.send("Hello");
+  return res.send("I em Server");
 });
 
 app.use(checkisAuthenticated);
 
 app.get("/Home", async (req, res) => {
-  return res.send("Hello");
+  return res.send("Hello Welcome to account");
 });
 
 
 //listen this port 
 let PORT = process.env.PORT || 3155;
 app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`Server running on port http://localhost:${PORT}`);
 });

@@ -1,25 +1,36 @@
 import Image from 'next/image'
+import MenuItem from './MenuItem/MenueItem.js'
+import SectionHeaders from './sectionHeaders.js'
 
 export default function HomeMenue()
 {
     return (
         <section className="">
-            <div className=''>
-                <div className=''>
-                    <Image src={'/sallad1.png'} alt="sallad" layout={'fill'} objectFit={'contain'}/>
+            <div className='absolute left-0 right-0'>
+                <div className='absolute left-[7%] -top-[150px] -z-10'>
+                    <Image src={'/sallad1.png'} width={190} height={330} alt="sallad"/>
                 </div>
-                {/* <div className='absolute w-64 h-64'>
-                    <Image src={'/sallad2.png'} width={180}  height={180 } alt='sallad'/>
-                </div> */}
+                <div className='absolute right-[7%] -top-32 -z-10'>
+                    <Image src={'/sallad2.png'} width={190} height={347}  alt="sallad"/>
+                </div>
             </div>
-            <div className="text-center outline-dashed">
-                <h3 className="font-semibold text-gray-500 uppercase leading-4">
-                    Check out
-                </h3>
-                <h2 className="text-red-500 font-bold italic text-4xl">
-                    Menu
-                </h2>
+            <div className="text-center ">
+                <SectionHeaders 
+                     subHeader={'check out'} 
+                     mainHeader={'Meny'}
+                 />
             </div>
+            <div className='flex justify-center outline-dashed mt-24'>
+                <div className='grid grid-cols-3 gap-6 w-10/12 py-4'>
+                    <MenuItem/>
+                    <MenuItem/>
+                    <MenuItem/>
+                    <MenuItem/>
+                    <MenuItem/>
+                    <MenuItem/>
+                </div>
+            </div>
+            
         </section>
     )
 }

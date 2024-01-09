@@ -9,7 +9,7 @@ type Props = {}
 
 
 const SignForm = (props: Props) => {
-    const [user,setUser] = useState({
+    const [user, setUser] = useState({
         name:"",
         email:"",
         passwprd:"",
