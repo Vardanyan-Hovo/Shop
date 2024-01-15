@@ -1,0 +1,38 @@
+https://react-icons.github.io/react-icons/
+npm install react-icons --save
+
+https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-typescript-postgresql
+npm install prisma --save-dev
+
+
+
+
+https://planetscale.com/
+
+https://next-auth.js.org/configuration/initialization#route-handlers-app
+
+nextAuth
+{
+    https://next-auth.js.org/getting-started/example
+    next-auth
+    npm install next-auth
+
+    NEXTAUTH_SECRET 
+    openssl rand -base64 32
+https://www.youtube.com/watch?v=w2h54xz6Ndw
+    goto
+    nextAuth->configuration->Providers->Credentials
+    //oAuth for google facebook ...
+
+    nextAuth->configuration->Providers->GitHub
+    Client ID = 1b5e4d413621ea261f68
+    Client secrets = 1e7b481c876f6d074444b3172555fa5b66263702
+
+    //    PROVDERS
+    {
+        in Vs Code search "Thunder Client" and install 
+        Thunder Client
+
+        http://localhost:3000/api/auth/providers
+    }
+}

@@ -1,0 +1,26 @@
+npx create-react-app my-app --template typescript
+
+Build a Complete Digital Marketplace with Next.js 14, React, tRPC, Tailwind | Full Course 2023
+https://www.youtube.com/watch?v=06g6YJ6JCJU
+
+//
+Tailwind
+Tailwind CSS IntelliSense
+//
+
+
+
+Build a Fullstack Food Ordering App with Next.js 14 (react.js, mongo, tailwind)
+https://www.youtube.com/watch?v=nGoSP3MBV2E&t=776s
+
+
+
+Build and Deploy a Full-Stack E-Commerce: Next.js 13, React.js, Typescript, Tailwind, Prisma, Stripe
+https://www.youtube.com/watch?v=g88HHFjuMm4&list=PL63c_Ws9ecISwPzddQzQ671S_gzJA6M5z
+
+
+//----------------------------------------------------------------------------------
+Full Stack Ecommerce Website Using NextJs 13.4 | Next Js Project
+https://www.youtube.com/watch?v=blZ9zKqQ_tU&t=652s
+
+

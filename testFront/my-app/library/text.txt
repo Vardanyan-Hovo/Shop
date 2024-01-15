@@ -1,0 +1,16 @@
+for icons
+https://heroicons.com/ 
+https://react.dev/learn/react-developer-tools
+
+https://www.youtube.com/watch?v=nGoSP3MBV2E&t=4307s
+https://next-auth.js.org/getting-started/typescript
+
+search for mongodb
+mongoose validation
+https://mongoosejs.com/docs/validation.html
+
+//--------------------------  nvm    --------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+nvm install node --reinstall-packages-from=node

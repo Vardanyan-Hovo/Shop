@@ -1,0 +1,11 @@
+0)npm init -y
+1)create index.html, style.html, src/index.ts
+2)npm install -g typescript
+3)npx tsc --init
+4)npm install express
+5)npm install nodemon dotenv --save-dev
+6)npm install bcrypt
+7)npm install express typescript @types/node @types/express
+8)npm install cors
+
+node index.js

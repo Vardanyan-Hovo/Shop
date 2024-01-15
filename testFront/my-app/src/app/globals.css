@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input[type="email"],
+input[type="password"] {
+    @apply  w-full rounded-lg;
+    @apply border p-2 border-gray-300 bg-gray-100;
+    
+}
+
+button{
+    @apply border rounded-lg
+}
+
+button[type="submit"], .submit{
+    @apply bg-red-500  p-2 text-white
+}
